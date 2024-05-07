@@ -17,7 +17,6 @@ const int gearInput3Pin = A3; // GEAR 3
 const int gearInput4Pin = A4; // GEAR 4
 const int gearInput5Pin = A5; // GEAR 5
 const int gearInput6Pin = A6; // GEAR 6
-const int gearInput7Pin = A7; // GEAR 7 UNUSED
 const int gearInputRPin = A0; // GEAR R
 
 const int yOut1 = 2;
@@ -41,7 +40,6 @@ void setup() {
   pinMode(gearInput4Pin, INPUT);
   pinMode(gearInput5Pin, INPUT);
   pinMode(gearInput6Pin, INPUT);
-  pinMode(gearInput7Pin, INPUT);
   pinMode(gearInputRPin, INPUT);
 
   // Gear Output
@@ -53,7 +51,7 @@ void setup() {
   pinMode(xOut3, OUTPUT);
   pinMode(xOut4, OUTPUT);
   pinMode(xOut5, OUTPUT);
-
+  
   outGearPosition(-1);
 }
 
@@ -68,22 +66,21 @@ void loop() {
 }
 
 int readGearPosition() {
+  int offset = 100;
   int in = analogRead(gearInput1Pin);
-  if (in == 0) { return 1; }
+  if (in < offset) { return 1; }
   in = analogRead(gearInput2Pin);
-  if (in == 0) { return 2; }
+  if (in < offset) { return 2; }
   in = analogRead(gearInput3Pin);
-  if (in == 0) { return 3; }
+  if (in < offset) { return 3; }
   in = analogRead(gearInput4Pin);
-  if (in == 0) { return 4; }
+  if (in < offset) { return 4; }
   in = analogRead(gearInput5Pin);
-  if (in == 0) { return 5; }
+  if (in < offset) { return 5; }
   in = analogRead(gearInput6Pin);
-  if (in == 0) { return 6; }
-  in = analogRead(gearInput7Pin);
-  if (in == 0) { return 7; }
+  if (in < offset) { return 6; }
   in = analogRead(gearInputRPin);
-  if (in == 0) { return 0; }
+  if (in < offset) { return 0; }
   return -1;
 }
 

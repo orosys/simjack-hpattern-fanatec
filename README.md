@@ -36,7 +36,6 @@ Arduino NANO를 사용함.
 - A4 - SIM JACK Shifter 4
 - A5 - SIM JACK Shifter 5
 - A6 - SIM JACK Shifter 6
-- A7 - SIM JACK Shifter - (캘리브레이션 용 임시 스위치)
 - A0 - SIM JACK Shifter R
 
 #### Output
